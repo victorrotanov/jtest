@@ -1,0 +1,4 @@
+/* custom_ckeditor.css */
+.ck-editor__editable {
+    color: #333; /* Задайте нужный вам цвет текста */
+}
