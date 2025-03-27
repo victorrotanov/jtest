@@ -8,8 +8,7 @@ class SingletonModelAdmin(admin.ModelAdmin):
     change_form_template = "admin/change_form.html"
 
     def get_model_perms(self, request):
-        """Скрывает модель из списка, но оставляет доступной в админке"""
-        return {"change": True, "view": True}  # Добавлен "view", иначе могут быть ошибки
+        return {"change": True, "view": True}
 
     def has_add_permission(self, request):
         return not OrganizationContact.objects.exists()
@@ -19,12 +18,10 @@ class SingletonModelAdmin(admin.ModelAdmin):
 
 
     def get_queryset(self, request):
-        """Всегда возвращает только одну запись"""
         obj = OrganizationContact.objects.first()
         return OrganizationContact.objects.filter(id=obj.id) if obj else OrganizationContact.objects.none()
 
     def changelist_view(self, request, extra_context=None):
-        """Если запись есть — сразу открываем её на редактирование"""
         obj = OrganizationContact.objects.first()
         if obj:
             return redirect(reverse("admin:main_organizationcontact_change", args=[obj.id]))
