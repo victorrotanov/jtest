@@ -51,7 +51,7 @@ class Managment(models.Model):
     class Meta:
         verbose_name = "Руководство"
         verbose_name_plural = "Руководство"
-        ordering = ["hierarchy"]  # Теперь это будет работать
+        ordering = ["hierarchy"]
 
     def __str__(self):
         return self.name

@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <title>{% block title %}Экибастузские тепловые сети{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    body {
+      background-size: 100vw 100vh;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top"
+    style="background-image: url('{% static 'bg.jpg' %}'); background-size: cover; background-position: center;">
+    <div class="row" style="width: 100vw;">
+      <div class="col d-flex flex-column justify-content-center text-center"
+        style="background-color:rgba(202, 212, 221, 0.7); padding: 10px;">
+        <span>
+          <span style="font-size: 22px; ">ЖАУАПКЕРШІЛІГІ ШЕКТЕУЛІ СЕРІКТЕСТІК</span>
+          <br>
+          <span style="font-size: 35px;"><b>ЕКІБАСТУЗ ЖЫЛУ ЖЕЛІЛЕРІ</b></span>
+        </span>
+      </div>
+      <div class="col-auto text-center" style="background-color:rgba(202, 212, 221, 0.7);padding: 10px;">
+        <img src="{% static 'netlogo.png' %}" style="width: 140px;">
+      </div>
+      <div class="col d-flex flex-column justify-content-center text-center"
+        style="background-color:rgba(202, 212, 221, 0.7); padding: 10px;">
+        <span>
+          <span style="font-size: 22px; ">ТОВАРИЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ</span>
+          <br>
+          <span style="font-size: 35px;"><b>ЭКИБАСТУЗСКИЕ ТЕПЛОВЫЕ СЕТИ</b></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Menu block start -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100vw; padding: 0; margin-right: 0;">
+    <br>
+    <div class="container-fluid" style="width: 100%; padding: 6; background-color: rgba(202, 212, 221, 0.8);">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="background-color: rgba(202, 212, 221, 0.8);">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'main' %}" style="color: #1a2b50;">Главная</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              О нас
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'history' %}">История</a></li>
+              <li><a class="dropdown-item" href="{% url 'strategy' %}">Стратегия</a></li>
+              <li><a class="dropdown-item" href="{% url 'managment' %}">Руководство</a></li>
+              <li><a class="dropdown-item" href="{% url 'procurement' %}">Закупки</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Потребителям
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href={% url 'individuals' %}>Бытовым потребителям (физические лица)</a></li>
+              <li><a class="dropdown-item" href={% url 'entities' %}>Небытовым потребителям (юридические лица)</a></li>
+              <li><a class="dropdown-item" href={% url 'techspec' %}>Технические условия подключения</a></li>
+              <li><a class="dropdown-item" href="{% url 'plunder' %}">Сообщить о хищение энергии</a></li>
+              <li><a class="dropdown-item" href="{% url 'esaving' %}">Энергосбережение</a></li>
+              <li><a class="dropdown-item" href="{% url 'stap' %}">Акция "Шаг на встречу"</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'outages' %}">Плановые отключения</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'evolution' %}">Устойчивое развитие</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'investments' %}">Инвестиционная программа</a>
+          </li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Борьба с коррупцией</a></li>
+            <li><a class="dropdown-item" href="#">Кадровая политика</a></li>
+            <li><a class="dropdown-item" href="#">Безопастность и охрана труда</a></li>
+            <li><a class="dropdown-item" href="#">Профсоюз</a></li>
+            <li><a class="dropdown-item" href="#">Интегрированная система менеджмента</a></li>
+          </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'meter_readings' %}">Прием показаний</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Left block start -->
+
+  <div class="row flex-grow-1 m-0 p-0" style="width: 100vw; height: 100vh;">
+    <div class="col-auto" style="background-color: rgba(240, 240, 240, 0.6); width: 350px; padding: 0;">
+      <div class="p-3">
+        <div class="left-cards-wrapper">
+          <!-- Руководство -->
+          <div class="left-block mb-4">
+            <div class="left-header">Руководство</div>
+            <div class="left-content mt-3">
+              {% for item in management %}
+              <strong>{{ item.position }}:</strong>
+              <!-- <ul> -->
+              <li>{{ item.name }}</li><br>
+              <!-- </ul> -->
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Личный прием -->
+          <div class="left-block mb-4">
+            <div class="left-header">Личный прием</div>
+            <div class="left-content mt-3">
+              <p>Заместитель генерального директора по производству-главный инженер ТОО «Экибастузские тепловые
+                сети»<br>
+                <li><b>Банченко Евгений Игоревич</b></li>
+                <br>Ведет прием граждан по личным вопросам каждый четверг месяца с 14.30 часов.<br>
+                <br>Предварительная запись по телефону: 8 (7187) 280-920.
+              </p>
+            </div>
+          </div>
+          <!-- Контакты -->
+          <div class="left-block mb-4">
+            <div class="left-header">Контакты предприятия</div>
+            <div class="left-content mt-3">
+              <p>{{ organization.address }}</p>
+              <p>{{ organization.phone }}</p>
+            </div>
+          </div>
+          <!-- Аварийная служба -->
+          <div class="left-block mb-4">
+            <div class="left-header">Аварийная служба</div>
+            <div class="left-content mt-3">
+              <p><b>Круглосуточный прием заявок</b></p>
+              <ul>
+                <li>Повреждения на трубопроводе теплоснабжения</li>
+                <li>Слабые параметры теплоснабжения</li>
+                <li>Дефекты по тепловой изоляции трубопровода</li>
+              </ul>
+              <p><b>Телефон:</b> 8 (7187) 28-09-01, 8 (7187) 34-71-05<br>
+                <b>WhatsApp:</b> (только сообщения) 8 (701) 705-49-57
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- content Block start-->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Right Sidebar -->
+    <div class="col" style="background-color: rgba(240, 240, 240, 0.6); flex: 0 0 300px">
+      <div class="cards-wrapper" style="margin-top: 5px;">
+        <div class="info-card">
+          <a href="{% url 'points' %}" style="text-decoration: none;">
+            <p class="contact-name">Пункты работы с потребителями</p>
+            <div style="text-align: center;">
+              <img src="{% static 'point.png' %}" alt="Пункты работы с потребителями" class="img-fluid"
+                style="width: 120px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'payments' %}" style="text-decoration: none;">
+            <p class="contact-name">Способы оплаты</p>
+            <div style="text-align: center;">
+              <img src="{% static 'payment.png' %}" alt="Способы оплаты" class="img-fluid" style="width: 120px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'tariffs' %}" style="text-decoration: none;">
+            <p class="contact-name">Тарифы на услуги</p>
+            <div style="text-align: center;">
+              <img src="{% static 'costs.png' %}" alt="Тарифы на услуги" class="img-fluid" style="width: 120px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'warmth' %}" style="text-decoration: none;">
+            <p class="contact-name">Всем тепла</p>
+            <div style="text-align: center;">
+              <img src="{% static 'warm.png' %}" alt="Всем тепла" class="img-fluid" style="width: 120px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'question' %}" style="text-decoration: none;">
+            <p class="contact-name">Вопрос руководителю</p>
+            <div style="text-align: center;">
+              <img src="{% static 'qa.png' %}" alt="Вопрос руководителю" class="img-fluid" style="width: 200px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'training' %}" style="text-decoration: none;">
+            <p class="contact-name">Повышение квалификации</p>
+            <div style="text-align: center;">
+              <img src="{% static 'competition.png' %}" alt="Повышение квалификации" class="img-fluid"
+                style="width: 200px;">
+            </div>
+          </a>
+        </div>
+        <div class="info-card">
+          <a href="{% url 'ourprofs' %}" style="text-decoration: none;">
+            <p class="contact-name">Наши профессионалы</p>
+            <div style="text-align: center;">
+              <img src="{% static 'profs.png' %}" alt="Наши профессионалы" class="img-fluid" style="width: 230px;">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</body>
+
+</html>

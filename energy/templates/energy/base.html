@@ -2,269 +2,245 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}ЭкибастузЭнерго{% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
-    {% block extra_head %}{% endblock %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}ЭкибастузЭнерго{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
-    <style>
-      html,
-      body {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  {% block extra_head %}{% endblock %}
 
-      .page-wrapper {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+  <style>
+    html,
+    body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      footer {
-        background-color: #474b4e;
-        color: white;
-        padding: 15px 0;
-        text-align: center;
-      }
+    .page-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      .navbar {
-        background-color: #474b4e;
-      }
+    footer {
+      background-color: #474b4e;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
 
-      .navbar .nav-link {
-        font-size: 13px;
-      }
+    .navbar {
+      background-color: #474b4e;
+    }
 
-      /* Стили для верхней информационной панели */
-      .top-bar {
-        background-color: white;
-        padding: 10px 0;
-        text-align: center;
-        font-size: 14px;
-        color: #56595d;
-      }
+    .navbar .nav-link {
+      font-size: 13px;
+    }
 
-      .top-bar a {
-        color: #494d52;
-        text-decoration: none;
-      }
+    /* Стили для верхней информационной панели */
+    .top-bar {
+      background-color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #56595d;
+    }
 
-      .top-bar a:hover {
-        text-decoration: underline;
-      }
+    .top-bar a {
+      color: #494d52;
+      text-decoration: none;
+    }
 
-      /* Стили для выпадающего меню */
-      .nav-item.dropdown:hover .dropdown-menu {
-        display: block; /* Показываем меню при наведении */
-      }
+    .top-bar a:hover {
+      text-decoration: underline;
+    }
 
-      .dropdown-menu {
-        display: none; /* Прячем меню по умолчанию */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Обертка для всей страницы с фиксированной шириной -->
-    <div class="page-wrapper">
-      <!-- Верхняя панель -->
-      <div class="top-bar">
-        <span
-          >Для получения консультации звоните по телефону:
-          <a href="tel:+7(123)456-78-90">+7 (123) 456-78-90</a></span
-        >
-      </div>
+    /* Стили для выпадающего меню */
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      /* Показываем меню при наведении */
+    }
 
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="/">&nbsp;&nbsp;ЭкибастузЭнерго</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  О нас
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">О нас 1</a></li>
-                  <li><a class="dropdown-item" href="#">О нас 2</a></li>
-                  <li><a class="dropdown-item" href="#">О нас 3</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Акционерам
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Акционерам 1</a></li>
-                  <li><a class="dropdown-item" href="#">Акционерам 2</a></li>
-                  <li><a class="dropdown-item" href="#">Акционерам 3</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Инвестпрограмма
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="#">Инвестпрограмма 1</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Инвестпрограмма 2</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Инвестпрограмма 3</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Устойчивое развитие
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="#">Устойчивое развитие 1</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Устойчивое развитие 2</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Устойчивое развитие 3</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Пресс-центр
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Пресс-центр 1</a></li>
-                  <li><a class="dropdown-item" href="#">Пресс-центр 2</a></li>
-                  <li><a class="dropdown-item" href="#">Пресс-центр 3</a></li>
-                </ul>
-              </li>
+    .dropdown-menu {
+      display: none;
+      /* Прячем меню по умолчанию */
+    }
 
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Подразделения
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Подразделения 1</a></li>
-                  <li><a class="dropdown-item" href="#">Подразделения 2</a></li>
-                  <li><a class="dropdown-item" href="#">Подразделения 3</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Подтребителям
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Подтребителям 1</a></li>
-                  <li><a class="dropdown-item" href="#">Подтребителям 2</a></li>
-                  <li><a class="dropdown-item" href="#">Подтребителям 3</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Вопрос-ответ
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Вопрос-ответ 1</a></li>
-                  <li><a class="dropdown-item" href="#">Вопрос-ответ 2</a></li>
-                  <li><a class="dropdown-item" href="#">Вопрос-ответ 3</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: right;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: right;
+      background-color: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px;
+      margin: 10px;
+    }
 
-      <main class="mt-4">
-        {% block content %}
-        <!-- Основной контент страницы -->
-        {% endblock %}
-      </main>
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-      <footer>
-        <p>&copy; 2025 Павлодарэнерго. Все права защищены.</p>
-      </footer>
+
+    .contact-details {
+      font-size: 16px;
+      color: black text-align: right;
+    }
+
+    .contact-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #1a2b50;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Обертка для всей страницы с фиксированной шириной -->
+  <div class="page-wrapper">
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+      <span>Для получения консультации звоните по телефону:
+        <a href="tel:+7(123)456-78-90">+7 (123) 456-78-90</a></span>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    {% block extra_js %}{% endblock %}
-  </body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">&nbsp;&nbsp;ЭкибастузЭнерго</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                О нас
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">О нас 1</a></li>
+                <li><a class="dropdown-item" href="#">О нас 2</a></li>
+                <li><a class="dropdown-item" href="#">О нас 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Акционерам
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Акционерам 1</a></li>
+                <li><a class="dropdown-item" href="#">Акционерам 2</a></li>
+                <li><a class="dropdown-item" href="#">Акционерам 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Инвестпрограмма
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#">Инвестпрограмма 1</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Инвестпрограмма 2</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Инвестпрограмма 3</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Устойчивое развитие
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="#">Устойчивое развитие 1</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Устойчивое развитие 2</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Устойчивое развитие 3</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Пресс-центр
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Пресс-центр 1</a></li>
+                <li><a class="dropdown-item" href="#">Пресс-центр 2</a></li>
+                <li><a class="dropdown-item" href="#">Пресс-центр 3</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Подразделения
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Подразделения 1</a></li>
+                <li><a class="dropdown-item" href="#">Подразделения 2</a></li>
+                <li><a class="dropdown-item" href="#">Подразделения 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Подтребителям
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Подтребителям 1</a></li>
+                <li><a class="dropdown-item" href="#">Подтребителям 2</a></li>
+                <li><a class="dropdown-item" href="#">Подтребителям 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Вопрос-ответ
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Вопрос-ответ 1</a></li>
+                <li><a class="dropdown-item" href="#">Вопрос-ответ 2</a></li>
+                <li><a class="dropdown-item" href="#">Вопрос-ответ 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mt-4">
+      {% block content %}
+      <!-- Основной контент страницы -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Павлодарэнерго. Все права защищены.</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+
 </html>
