@@ -35,7 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'main',
+    'django_recaptcha',
 ]
+
+RECAPTCHA_PUBLIC_KEY = "6LcajQUrAAAAADkWWUA_DYY6wRzM1PLb0k92xqv8"
+RECAPTCHA_PRIVATE_KEY = "6LcajQUrAAAAAFe_Nt0ox35cngx3lE56UpceFN19"
+RECAPTCHA_REQUIRED_SCORE = 0.85  
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,7 +1,54 @@
 {% extends "main/base.html" %}
-<title>{% block title %}Экибастузские тепловые сети - Вопрос руководителю{% endblock %}</title>
+{% load static %}
+<title>{% block title %}Экибастузские тепловые сети - Вопрос-ответ{% endblock %}</title>
 {% block content %}
-<div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
-    <h3>Вопрос руководителю</h3>
+<div class="col px-4 py-3" style="background-color: overflow-y: auto;">
+    <h3>Вопрос-ответ</h3>
+    <div class="container" style="height: 750px;">
+        <div class="row h-100">
+            <div class="col-12" style="height: 70%; overflow-y: auto;">
+                {% for _ in ""|center:50 %}
+                {% for item in faqs %}
+                    <div class="container">
+                        <a class="btn btn-link faq-link" data-bs-toggle="collapse" 
+                        href="#faq-hiddenText{{ item.hierarchy }}" role="button" 
+                        aria-expanded="false" aria-controls="faq-hiddenText{{ item.hierarchy }}">
+                            {{ item.question }}
+                        </a>
+                        <div class="collapse mt-0" id="faq-hiddenText{{ item.hierarchy }}">
+                            <div class="card card-body">
+                                {{ item.answer }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="news-block mb-4 p-3 border rounded">
+                <div class="news-header h5 text-center mb-3">Вопрос руководителю</div>
+                <div class="container">
+                    <div class="row full-height h-100">
+                        <div class="col-6 d-flex align-items-center justify-content-center h-100">
+                            <div class="container d-flex flex-column justify-content-center p-0" style="height: 100%;">
+                                <div class="half-height d-flex align-items-center justify-content-center"></div>
+                                <div class="half-height d-flex align-items-center justify-content-center" style="margin-top: 50px;">
+                                    <img src="{% static 'boss.jpg' %}" class="img-fluid" style="max-width: 100%; max-height: 100%; margin: 0; padding: 0;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center justify-content-center h-100">
+                            <div class="container d-flex flex-column justify-content-center p-0" style="height: 100%; width: 100%;">
+                                <form method="post" class="w-100">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit" class="btn btn-primary w-100">Задать вопрос</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

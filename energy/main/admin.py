@@ -1,37 +1,83 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.shortcuts import redirect
-from .models import News, OrganizationContact, Managment
+from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService
 
 
-class SingletonModelAdmin(admin.ModelAdmin):
-    change_form_template = "admin/change_form.html"
+admin.site.site_header = "Панель управления сайтом"
+admin.site.site_title = "Управление контентом"
+admin.site.index_title = "Добро пожаловать в админку"
 
-    def get_model_perms(self, request):
-        return {"change": True, "view": True}
+admin.site.register(FAQ)
 
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ("created_at", "title")
+    search_fields = ("title",)
+    ordering = ("-created_at",)
+
+
+@admin.register(Managment)
+class ManagmentAdmin(admin.ModelAdmin):
+    list_display = ("name", "position", "phone", "email", "hierarchy")
+    search_fields = ("name", "position")
+    list_filter = ("position","name")
+    ordering = ("hierarchy",)
+
+@admin.register(QuestionThemes)
+class QuestionThemesAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    search_fields = ("name",)
+    ordering = ("name",)
+    
+@admin.register(QuestionMessage)
+class QuestionMessageAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "phone", "theme", "created_at")
+    search_fields = ("name", "email", "phone")
+    ordering = ("-created_at",)
+    list_filter = ("theme",)
+
+class OrganizationContactAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return not OrganizationContact.objects.exists()
 
     def has_delete_permission(self, request, obj=None):
         return False
 
-
-    def get_queryset(self, request):
-        obj = OrganizationContact.objects.first()
-        return OrganizationContact.objects.filter(id=obj.id) if obj else OrganizationContact.objects.none()
-
     def changelist_view(self, request, extra_context=None):
         obj = OrganizationContact.objects.first()
         if obj:
-            return redirect(reverse("admin:main_organizationcontact_change", args=[obj.id]))
+            return self.change_view(request, object_id=str(obj.pk))
         return super().changelist_view(request, extra_context)
 
+admin.site.register(OrganizationContact, OrganizationContactAdmin)
 
-admin.site.register(OrganizationContact, SingletonModelAdmin)
-admin.site.register(News)
-admin.site.register(Managment)
+class PersonalReceptionAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        return not PersonalReception.objects.exists()
 
-admin.site.site_header = "Панель управления сайтом"
-admin.site.site_title = "Управление контентом"
-admin.site.index_title = "Добро пожаловать в админку"
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = PersonalReception.objects.first()
+        if obj:
+            return self.change_view(request, object_id=str(obj.pk))
+        return super().changelist_view(request, extra_context)
+
+admin.site.register(PersonalReception, PersonalReceptionAdmin)
+
+class EmergencyServiceAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        return EmergencyService.objects.count() == 0
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = EmergencyService.objects.first()
+        if obj:
+            return self.change_view(request, object_id=str(obj.pk))
+        return super().changelist_view(request, extra_context)
+
+admin.site.register(EmergencyService, EmergencyServiceAdmin)
