@@ -1,7 +1,7 @@
 from html import entities
 from django.shortcuts import render
 from django.urls import path
-from .views import contacts, esaving, evolution, history, home, individuals, investments, managment, meter_readings, ourprofs, outages, payments, plunder, points, procurement, question, stap, strategy, tariffs, techspec, entities, training, warmth
+from .views import *
 
 urlpatterns = [
     path('', home, name='main'),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('question/', question, name='question'),
     path('training/', training, name='training'),
     path('ourprofs/', ourprofs, name='ourprofs'),
+    path('success/', success, name='success'),
 ]

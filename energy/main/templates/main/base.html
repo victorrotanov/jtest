@@ -135,11 +135,10 @@
           <div class="left-block mb-4">
             <div class="left-header">Личный прием</div>
             <div class="left-content mt-3">
-              <p>Заместитель генерального директора по производству-главный инженер ТОО «Экибастузские тепловые
-                сети»<br>
-                <li><b>Банченко Евгений Игоревич</b></li>
+              <p>{{ personal_reception.person.position }}<br>
+                <li><b>{{ personal_reception.person.name}}</b></li>
                 <br>Ведет прием граждан по личным вопросам каждый четверг месяца с 14.30 часов.<br>
-                <br>Предварительная запись по телефону: 8 (7187) 280-920.
+                <br>Предварительная запись по телефону: {{personal_reception.person.phone}}.
               </p>
             </div>
           </div>
@@ -161,8 +160,8 @@
                 <li>Слабые параметры теплоснабжения</li>
                 <li>Дефекты по тепловой изоляции трубопровода</li>
               </ul>
-              <p><b>Телефон:</b> 8 (7187) 28-09-01, 8 (7187) 34-71-05<br>
-                <b>WhatsApp:</b> (только сообщения) 8 (701) 705-49-57
+              <p><b>Телефон:</b>{{ emergency_service.phone }}<br><br>
+                <b>WhatsApp:</b> (только сообщения) {{ emergency_service.whatsapp }}
               </p>
             </div>
           </div>
@@ -212,7 +211,7 @@
         </div>
         <div class="info-card">
           <a href="{% url 'question' %}" style="text-decoration: none;">
-            <p class="contact-name">Вопрос руководителю</p>
+            <p class="contact-name">Вопрос-ответ</p>
             <div style="text-align: center;">
               <img src="{% static 'qa.png' %}" alt="Вопрос руководителю" class="img-fluid" style="width: 200px;">
             </div>
