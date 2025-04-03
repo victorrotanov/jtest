@@ -137,7 +137,7 @@
             <div class="left-content mt-3">
               <p>{{ personal_reception.person.position }}<br>
                 <li><b>{{ personal_reception.person.name}}</b></li>
-                <br>Ведет прием граждан по личным вопросам каждый четверг месяца с 14.30 часов.<br>
+                <br>{{ personal_reception.description}}<br>
                 <br>Предварительная запись по телефону: {{personal_reception.person.phone}}.
               </p>
             </div>
@@ -146,7 +146,7 @@
           <div class="left-block mb-4">
             <div class="left-header">Контакты предприятия</div>
             <div class="left-content mt-3">
-              <p>{{ organization.address }}</p>
+              <p>{{ organization.address|safe }}</p>
               <p>{{ organization.phone }}</p>
             </div>
           </div>

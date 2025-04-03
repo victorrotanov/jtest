@@ -96,6 +96,7 @@ class QuestionMessage(models.Model):
 class PersonalReception(models.Model):
     
     person = models.ForeignKey(Managment, on_delete=models.CASCADE, null=True, verbose_name="Личный прием ведет")
+    description = models.TextField(verbose_name="Описание")
     
     def __str__(self):
         return f"Личный прием: {self.person}" if self.person else "Личный прием (не указан)"
@@ -115,3 +116,32 @@ class EmergencyService(models.Model):
     class Meta:
         verbose_name = "Аварийная служба"
         verbose_name_plural = "Аварийная служба"
+        
+class IndividualAttachment(models.Model):
+    
+    name = models.CharField(max_length=100, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Бытовым потребителям"
+        verbose_name_plural = "Бытовым потребителям"
+
+class EntityAttachment(models.Model):
+    
+    name = models.CharField(max_length=100, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Небытовым потребителям"
+        verbose_name_plural = "Небытовым потребителям"
+        

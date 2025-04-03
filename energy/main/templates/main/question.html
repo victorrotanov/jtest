@@ -7,7 +7,7 @@
     <div class="container" style="height: 750px;">
         <div class="row h-100">
             <div class="col-12" style="height: 70%; overflow-y: auto;">
-                {% for _ in ""|center:50 %}
+                {% comment %} {% for _ in ""|center:50 %} {% endcomment %}
                 {% for item in faqs %}
                     <div class="container">
                         <a class="btn btn-link faq-link" data-bs-toggle="collapse" 
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 {% endfor %}
-                {% endfor %}
+                {% comment %} {% endfor %} {% endcomment %}
             </div>
             <div class="news-block mb-4 p-3 border rounded">
                 <div class="news-header h5 text-center mb-3">Вопрос руководителю</div>

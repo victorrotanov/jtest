@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService
+from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment
 from .forms import QuestionMessageForm
 import ssl
 import certifi
@@ -57,10 +57,12 @@ def meter_readings(request):
 
 def individuals(request):
     context = get_default_context()
+    context['attachments'] = IndividualAttachment.objects.all()
     return render(request, 'main/individuals.html', context)
 
 def entities(request):
     context = get_default_context()
+    context['attachments'] = EntityAttachment.objects.all()
     return render(request, 'main/entities.html', context)   
 
 def techspec(request):
@@ -119,3 +121,7 @@ def training(request):
 def ourprofs(request):
     context = get_default_context()
     return render(request, 'main/ourprofs.html', context)
+
+def test(request):
+    context = get_default_context()
+    return render(request, 'main/test.html', context)

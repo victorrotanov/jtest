@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.shortcuts import redirect
-from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService
+from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment
 
 
 admin.site.site_header = "Панель управления сайтом"
@@ -9,6 +9,8 @@ admin.site.site_title = "Управление контентом"
 admin.site.index_title = "Добро пожаловать в админку"
 
 admin.site.register(FAQ)
+admin.site.register(IndividualAttachment)
+admin.site.register(EntityAttachment)
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
