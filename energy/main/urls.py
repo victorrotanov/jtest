@@ -11,7 +11,6 @@ urlpatterns = [
     path('procurement/', procurement, name='procurement'),
     path('strategy/', strategy, name='strategy'),
     path('outages/', outages, name='outages'),
-    path('evolution/', evolution, name='evolution'),
     path('investments/', investments, name='investments'),
     path('meter_readings/', meter_readings, name='meter_readings'),
     path('individuals/', individuals, name='individuals'),
@@ -28,5 +27,6 @@ urlpatterns = [
     path('training/', training, name='training'),
     path('ourprofs/', ourprofs, name='ourprofs'),
     path('success/', success, name='success'),
+    path('vacancy/', vacancy, name='vacancy'),
     path('test/', test, name='test'),
 ]

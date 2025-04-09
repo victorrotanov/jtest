@@ -1,48 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Block</title>
     <style>
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1050;
+        .block {
+            margin: 100px;
+            width: 100h%;
+            height: 200px;
+            background: #fff;
+            box-shadow: 0 0 0 1px #999 inset;
+            position: relative;
+            border-bottom-right-radius: 60px;
         }
-        .chat-window {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            display: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .block:before {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            right: 10px;
+            width: 25px;
+            height: 30px;
+            background: linear-gradient(-30deg, #999 1px, #f1f1f1 90%);
+            box-shadow: 0 0 0 1px #999 inset;
+            transform: skew(-20deg, -20deg) rotate(9deg);
+            border-bottom-right-radius: 60px;
+        }
+        .block:after {
+            content: '';
+            position: absolute;
+            bottom: 22px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            transform: skew(20deg);
+            z-index: -1;
+            box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
+    <div class="block">авыававыавы</div>
     
-    <button class="btn btn-primary chat-button" id="chat-toggle">Чат с менеджером</button>
-    
-    <div class="chat-window p-3" id="chat-box">
-        <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-            <strong>Чат с менеджером</strong>
-            <button class="btn-close" id="chat-close"></button>
-        </div>
-        <div class="mt-2 flex-grow-1" style="height: 300px; overflow-y: auto;">
-            <p>Добро пожаловать! Чем могу помочь?</p>
-        </div>
-        <input type="text" class="form-control mt-2" placeholder="Введите сообщение...">
-    </div>
-    
-    <script>
-        document.getElementById("chat-toggle").addEventListener("click", function() {
-            document.getElementById("chat-box").style.display = "block";
-        });
-        document.getElementById("chat-close").addEventListener("click", function() {
-            document.getElementById("chat-box").style.display = "none";
-        });
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

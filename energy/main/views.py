@@ -43,10 +43,6 @@ def outages(request):
     context = get_default_context()
     return render(request, 'main/outages.html', context)
 
-def evolution(request):
-    context = get_default_context()
-    return render(request, 'main/evolution.html', context)
-
 def investments(request):
     context = get_default_context()
     return render(request, 'main/investments.html', context)
@@ -121,6 +117,10 @@ def training(request):
 def ourprofs(request):
     context = get_default_context()
     return render(request, 'main/ourprofs.html', context)
+
+def vacancy(request):
+    context = get_default_context()
+    return render(request, 'main/vacancy.html', context)
 
 def test(request):
     context = get_default_context()

@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "venv/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.analysis.extraPaths":
+    [
+        "${workspaceFolder}"
+    ],
+    "python.analysis.typeCheckingMode": "off",
+    "python.languageServer": "Pylance"
+}

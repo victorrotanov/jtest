@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-  <title>{% block title %}Экибастузские тепловые сети{% endblock %}</title>
+  <title>{% block title %}Экибастузские Тепловые Сети{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <style>
     body {
@@ -87,22 +87,30 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'outages' %}">Плановые отключения</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'evolution' %}">Устойчивое развитие</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Устойчивое развитие
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Борьба с коррупцией</a></li>
+              <li><a class="dropdown-item" href="#">Кадровая политика</a></li>
+              <li><a class="dropdown-item" href="#">Безопастность и охрана труда</a></li>
+              <li><a class="dropdown-item" href="#">Профсоюз</a></li>
+              <li><a class="dropdown-item" href="#">Интегрированная система менеджмента</a></li>
+            </ul>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'investments' %}">Инвестиционная программа</a>
           </li>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Борьба с коррупцией</a></li>
-            <li><a class="dropdown-item" href="#">Кадровая политика</a></li>
-            <li><a class="dropdown-item" href="#">Безопастность и охрана труда</a></li>
-            <li><a class="dropdown-item" href="#">Профсоюз</a></li>
-            <li><a class="dropdown-item" href="#">Интегрированная система менеджмента</a></li>
-          </ul>
+          
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'meter_readings' %}">Прием показаний</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'vacancy' %}">Вакансии</a>
           </li>
 
           <li class="nav-item">
