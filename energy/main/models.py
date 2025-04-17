@@ -46,7 +46,12 @@ class Managment(models.Model):
     organization = models.ForeignKey(
         OrganizationContact, on_delete=models.CASCADE, verbose_name="Организация", related_name="managment"
     )
-
+    photo = models.FileField(upload_to='managment/', verbose_name="Фото", blank=True, null=True)
+    biography = models.TextField(verbose_name="Биография", blank=True, null=True)
+    education = models.TextField(verbose_name="Образование", blank=True, null=True)
+    recommendations = models.TextField(verbose_name="Рекомендация", blank=True, null=True)
+    birchday = models.DateField(verbose_name="Дата рождения", blank=True, null=True)
+    
     class Meta:
         verbose_name = "Руководство"
         verbose_name_plural = "Руководство"

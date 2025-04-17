@@ -3,5 +3,38 @@
 {% block content %}
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
     <h3>Руководство</h3>
+    
+    {% for item in management %}
+    <table width="100%" cellpadding="10" style="border-collapse: collapse;">
+        <tr valign="top">
+            <td style="width: 350px;">
+                <div style="width: 100%;">
+                    <div style="text-align: center; font-size: 25px; color:rgb(0, 0, 0);">
+                        <b>{{ item.name }}</b>
+                    </div>
+                    <div style="text-align: center;">
+                        {% if item.photo %}
+                            <img src="{{ item.photo.url }}"  style="max-width: 100%;">
+                        {% endif %}
+                    </div>
+                    <div style="text-align: center; font-size: 25px; color:rgb(13, 63, 28);">
+                        {{ item.position }}
+                    </div>
+                </div>
+            </td>
+            <td style="padding-left: 15px; text-align: justify;">
+                <div style="text-indent: 25px;">{{ item.biography|safe }}</div>
+                <br>
+                <div style="text-indent: 25px;">
+                    <strong>Образование:&nbsp;</strong>{{ item.education }}
+                </div>
+                <br>
+                <div style="text-indent: 25px;">{{ item.recommendations|linebreaks }}</div>
+            </td>
+        </tr>
+    </table>
+    <hr style="border: 1px solid #000; margin: 30px 0;">
+    {% endfor %}
+           
 </div>
 {% endblock %}
