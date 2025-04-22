@@ -94,8 +94,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Борьба с коррупцией</a></li>
-              <li><a class="dropdown-item" href="#">Кадровая политика</a></li>
-              <li><a class="dropdown-item" href="#">Безопастность и охрана труда</a></li>
+              <li><a class="dropdown-item" href={% url 'green' %}>Охрана окружающей среды</a></li>
+              <li><a class="dropdown-item" href={% url 'hrsafety' %}>Безопастность и охрана труда</a></li>
               <li><a class="dropdown-item" href="#">Профсоюз</a></li>
               <li><a class="dropdown-item" href="#">Интегрированная система менеджмента</a></li>
             </ul>
@@ -154,8 +154,8 @@
           <div class="left-block mb-4">
             <div class="left-header">Контакты предприятия</div>
             <div class="left-content mt-3">
-              <p>{{ organization.address|safe }}</p>
-              <p>{{ organization.phone }}</p>
+              {{ organization.address|safe }}
+              <br><b>Телефон: </b>{{ organization.phone }}
             </div>
           </div>
           <!-- Аварийная служба -->

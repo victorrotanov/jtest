@@ -29,4 +29,6 @@ urlpatterns = [
     path('success/', success, name='success'),
     path('vacancy/', vacancy, name='vacancy'),
     path('test/', test, name='test'),
+    path('green/', green, name='green'),
+    path('hrsafety/', hrsafety, name='hrsafety'),
 ]

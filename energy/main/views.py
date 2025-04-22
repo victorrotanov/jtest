@@ -125,3 +125,11 @@ def vacancy(request):
 def test(request):
     context = get_default_context()
     return render(request, 'main/test.html', context)
+
+def green(request):
+    context = get_default_context()
+    return render(request, 'main/green.html', context)
+
+def hrsafety(request):
+    context = get_default_context()
+    return render(request, 'main/hrsafety.html', context)
