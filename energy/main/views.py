@@ -141,3 +141,7 @@ def anti_corruption(request):
 def labor_union(request):
     context = get_default_context()
     return render(request, 'main/labor_union.html', context)
+
+def integrated_system(request):
+    context = get_default_context()
+    return render(request, 'main/integrated_system.html', context)

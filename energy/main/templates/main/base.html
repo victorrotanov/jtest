@@ -97,14 +97,9 @@
               <li><a class="dropdown-item" href={% url 'green' %}>Охрана окружающей среды</a></li>
               <li><a class="dropdown-item" href={% url 'hrsafety' %}>Безопастность и охрана труда</a></li>
               <li><a class="dropdown-item" href={% url 'labor_union' %}>Профсоюз</a></li>
-              <li><a class="dropdown-item" href="#">Интегрированная система менеджмента</a></li>
+              <li><a class="dropdown-item" href={% url 'integrated_system' %}>Интегрированная система менеджмента</a></li>
             </ul>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'investments' %}">Инвестиционная программа</a>
-          </li>
-          
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'meter_readings' %}">Прием показаний</a>
@@ -133,7 +128,7 @@
             <div class="left-content mt-3">
               {% for item in management %}
                 <div class="management-item" style="margin-bottom: 10px; line-height: 1.6;">
-                  <strong>{{ item.position }}:</strong> {{ item.name }}
+                  <strong>{{ item.position }}:</strong> <br>{{ item.name }}
                 </div>
               {% endfor %}
             </div>

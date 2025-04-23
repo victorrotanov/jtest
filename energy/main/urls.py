@@ -33,4 +33,5 @@ urlpatterns = [
     path('hrsafety/', hrsafety, name='hrsafety'),
     path('anti_corruption/', anti_corruption, name='anti_corruption'),
     path('labor_union/', labor_union, name='labor_union'),
+    path('integrated_system/', integrated_system, name='integrated_system'),
 ]
