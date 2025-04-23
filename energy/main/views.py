@@ -133,3 +133,11 @@ def green(request):
 def hrsafety(request):
     context = get_default_context()
     return render(request, 'main/hrsafety.html', context)
+
+def anti_corruption(request):
+    context = get_default_context()
+    return render(request, 'main/anti_corruption.html', context)
+
+def labor_union(request):
+    context = get_default_context()
+    return render(request, 'main/labor_union.html', context)
