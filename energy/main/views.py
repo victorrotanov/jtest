@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment
+from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates
 from .forms import QuestionMessageForm
-import ssl
 import certifi
 import os
+from datetime import datetime
+
 os.environ['SSL_CERT_FILE'] = certifi.where()
 
 def get_default_context():
@@ -13,7 +14,7 @@ def get_default_context():
         'personal_reception': PersonalReception.objects.first(),
         'emergency_service': EmergencyService.objects.first(),
     }
-    
+
 def home(request):
     context = get_default_context()
     context['news'] = News.objects.all()
@@ -21,6 +22,7 @@ def home(request):
 
 def contacts(request):
     context = get_default_context()
+    context['contact_list'] = Contacts.objects.all()
     return render(request, 'main/contacts.html', context)
 
 def history(request):
@@ -79,15 +81,18 @@ def stap(request):
 
 def points(request):
     context = get_default_context()
+    context['info'] = PublicServicePoint.objects.all()
     return render(request, 'main/points.html', context)
 
 def payments(request):
     context = get_default_context()
     return render(request, 'main/payments.html', context)
 
-def tariffs(request):
+def rates(request):
     context = get_default_context()
-    return render(request, 'main/tariffs.html', context)
+    context['info'] = Rates.objects.all()
+    context['year'] = datetime.now().year
+    return render(request, 'main/rates.html', context)
 
 def warmth(request):
     context = get_default_context()
@@ -116,6 +121,7 @@ def training(request):
 
 def ourprofs(request):
     context = get_default_context()
+    context['info'] = OurProfessionals.objects.all()
     return render(request, 'main/ourprofs.html', context)
 
 def vacancy(request):
@@ -145,3 +151,9 @@ def labor_union(request):
 def integrated_system(request):
     context = get_default_context()
     return render(request, 'main/integrated_system.html', context)
+
+def meter_readings(request):
+    context = get_default_context()
+    context['meters_contacts'] = MeterReadingBaseContacts.objects.first()
+    context['meters_boxes'] = MeterReadingBoxes.objects.all()
+    return render(request, 'main/meter_readings.html', context)

@@ -1,7 +1,37 @@
 {% extends "main/base.html" %}
-<title>{% block title %}Экибастузские Тепловые Сети - Пункты работы с потребителями{% endblock %}</title>
 {% block content %}
+<title>{% block title %}Экибастузские Тепловые Сети - Пункты работы с потребителями{% endblock %}</title>
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
     <h3>Пункты работы с потребителями</h3>
+    <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
+        <br>
+        <p>В целях создания благоприятных условий для потребителей открыты 2 пункта обслуживания населения, расположенных в наиболее удобной части города. </p>
+        Комплекс услуг пунктов обслуживания включает в себя:
+        <ul>
+            <li>•	приём платежей за тепловую энергию от физических и юридических лиц без комиссии;</li>
+            <li>•	предоставление потребителям информации касающейся теплоснабжения, в том числе: по начислению, задолженности и оплате, принятие заявлений от потребителей.</li>
+        </ul>
+        <h5><b>Адреса пунктов обслуживания населения</b></h5>
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr align="center">
+                    <th style="border: 1px solid #000; padding: 8px;">Пункт обслуживания населения</th>
+                    <th style="border: 1px solid #000; padding: 8px;">Место расположения</th>
+                    <th style="border: 1px solid #000; padding: 8px;">Режим работы</th>
+                    <th style="border: 1px solid #000; padding: 8px;">Комплекс услуг</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in info %}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ item.name|default:"" }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ item.location|default:"" }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ item.workSchedule|default:"" }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ item.services|default:"" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
 </div>
 {% endblock %}

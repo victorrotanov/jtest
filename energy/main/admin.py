@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.shortcuts import redirect
-from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment
+from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, Streets, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates
 
 
 admin.site.site_header = "Панель управления сайтом"
@@ -28,7 +28,7 @@ class ManagmentAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionThemes)
 class QuestionThemesAdmin(admin.ModelAdmin):
-    list_display = ("name",)
+    list_display = ("name","eMail")
     search_fields = ("name",)
     ordering = ("name",)
     
@@ -83,3 +83,24 @@ class EmergencyServiceAdmin(admin.ModelAdmin):
         return super().changelist_view(request, extra_context)
 
 admin.site.register(EmergencyService, EmergencyServiceAdmin)
+
+class MetersReadingServiceAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        return MeterReadingBaseContacts.objects.count() == 0
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = MeterReadingBaseContacts.objects.first()
+        if obj:
+            return self.change_view(request, object_id=str(obj.pk))
+        return super().changelist_view(request, extra_context)
+
+admin.site.register(MeterReadingBaseContacts, MetersReadingServiceAdmin)
+admin.site.register(Streets)
+admin.site.register(MeterReadingBoxes)
+admin.site.register(Contacts)
+admin.site.register(OurProfessionals)
+admin.site.register(PublicServicePoint)
+admin.site.register(Rates)

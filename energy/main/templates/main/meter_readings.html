@@ -1,7 +1,83 @@
 {% extends "main/base.html" %}
-<title>{% block title %}Экибастузские Тепловые Сети -  Прием показаний{% endblock %}</title>
+{% load static %}
 {% block content %}
+<title>{% block title %}Экибастузские Тепловые Сети -  Прием показаний{% endblock %}</title>
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
     <h3>Прием показаний</h3>
+    <br>
+    <h4>Способы передачи показаний приборов учета</h4>
+    <br>
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="flex: 0 0 auto; padding: 10px; border: none; solid #ccc;">
+            <img src="{% static 'hot_water.png' %}" alt="История строительства теплосетей" class="img-fluid" style="width: 130px;transform: scaleX(-1);">
+        </div>
+        <div style="flex: 0 0 auto; padding: 10px; border: none; solid #ccc;">
+            <h4><u>По горячему водоснабжению</u></h4>
+        </div>
+    </div>
+    <p>Показания по приборам учета <b>горячего водоснабжения</b> необходимо передавать ежемесячно с 20 по 30(31) число следующими способами:</p>
+    <div class="section">
+      <h4>По небытовым потребителям</h4>
+      <ul>
+        <li><strong>WhatsApp:</strong> {{ meters_contacts.whatsapp_entity }}</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h4>По бытовым потребителям</h4>
+      <ul>
+        <li><strong>Телефон:</strong> {{meters_contacts.phones_individual}}</li>
+        <li><strong>WhatsAppBot, TelegramBot:</strong> {{meters_contacts.bots}}</li>
+        <li><strong>Электронная почта:</strong> <a href="mailto:pokgvs@tooets.kz">{{meters_contacts.eMail}}</a></li>
+        <li><strong>Бумажные носители:</strong> передаются через установленные по городу ящики для приема показаний по следующим адресам:</li>
+      </ul>
+      <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #000; padding: 8px;">Наименование</th>
+                <th style="border: 1px solid #000; padding: 8px;">Адрес</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in meters_boxes%}
+            <tr>
+                <td style="border: 1px solid #000; padding: 8px;">{{ item.name }}</td>
+                <td style="border: 1px solid #000; padding: 8px;">ул. {{ item.street }}, дом № {{ item.home }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <strong>При этом указав:</strong>
+    </div>
+    <ol>
+        <li>Адрес и лицевой счет.</li>
+        <li>Номер счетчика горячего водоснабжения и показания по счетчику ГВС.</li>
+        <li>Контактный номер телефона.</li>
+    </ol>
+    
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="flex: 0 0 auto; padding: 10px; border: none; solid #ccc;">
+                <img src="{% static 'heat_meter.png' %}" alt="История строительства теплосетей" class="img-fluid" style="width: 130px;transform: scaleX(-1);">
+            </div>
+            <div style="flex: 0 0 auto; padding: 10px; border: none; solid #ccc;">
+                <h4><u>По приборам учета тепловой энергии</u></h4>
+            </div>
+        </div>
+    <p>
+        Показания по <b>приборам учета тепловой энергии</b> (отопления) можно передать следующими способами:
+    </p>
+    <h5><u>Проживающие в частном жилом фонде</u></h5>
+    <ul>
+        <li><strong>Телефон:</strong> {{meters_contacts.phones_private}}</li>
+        <li><strong>WhatsApp:</strong> {{meters_contacts.WhatsApp_private}}</li>
+    </ul>
+    <h5><u>Проживающие в многоэтажном жилом фонде</u></h5>
+    <ul>
+        <li><strong>WhatsApp или Sms:</strong> {{meters_contacts.appart_WhatsApp}}</li>
+    </ul>
+    <h5><u>Небытовые потребители</u></h5>
+    <ul>
+        <li><strong>Электронная почта:</strong> {{meters_contacts.entity_eMail}}</li>
+    </ul>
 </div>
 {% endblock %}

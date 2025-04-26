@@ -21,7 +21,7 @@ urlpatterns = [
     path('stap/', stap, name='stap'),
     path('points/', points, name='points'),
     path('payments/', payments, name='payments'),
-    path('tariffs/', tariffs, name='tariffs'),
+    path('rates/', rates, name='rates'),
     path('warmth/', warmth, name='warmth'),
     path('question/', question, name='question'),
     path('training/', training, name='training'),
@@ -34,4 +34,5 @@ urlpatterns = [
     path('anti_corruption/', anti_corruption, name='anti_corruption'),
     path('labor_union/', labor_union, name='labor_union'),
     path('integrated_system/', integrated_system, name='integrated_system'),
+    path('meter_readings/', meter_readings, name='meter_readings'),
 ]

@@ -74,6 +74,7 @@ class FAQ(models.Model):
     
 class QuestionThemes(models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name="Тема вопроса")
+    eMail = models.CharField(max_length=200, null=True, blank=True, verbose_name="Электронная почта")
     
     class Meta:
         verbose_name = "Тема вопроса"
@@ -150,3 +151,91 @@ class EntityAttachment(models.Model):
         verbose_name = "Небытовым потребителям"
         verbose_name_plural = "Небытовым потребителям"
         
+class MeterReadingBaseContacts(models.Model):
+    whatsapp_entity = models.CharField(max_length=300, verbose_name="Небытовые потребители whatsapp")
+    phones_individual = models.CharField(max_length=300, verbose_name="Бытовым потребителям номера телефонов")
+    bots = models.CharField(max_length=50, verbose_name="Бытовым потребителям WhatsAppBot, TelegramBot")
+    eMail = models.CharField(max_length=100, verbose_name="Бытовым потребителям eMail")
+    phones_private = models.CharField(max_length=300, verbose_name="Частный сектор номера телефонов")
+    WhatsApp_private = models.CharField(max_length=300, verbose_name="Частный сектор whatsapp")
+    appart_WhatsApp = models.CharField(max_length=300, verbose_name="Многоэтажные дома whatsapp или SMS")
+    entity_eMail = models.CharField(max_length=100, verbose_name="Небытовым потребителям eMail")
+
+    def __str__(self):
+        return self.whatsapp_entity
+    
+    class Meta:
+        verbose_name = "Прием показаний"
+        verbose_name_plural = "Прием показаний"
+        
+class Streets(models.Model):
+    streetName = models.CharField(max_length=100, verbose_name="Наименование улицы")
+    
+    def __str__(self):
+        return self.streetName
+    
+    class Meta:
+        verbose_name = "Улица"
+        verbose_name_plural = "Улицы"
+        
+class MeterReadingBoxes(models.Model):
+    name = models.CharField(max_length=50, null=False, verbose_name="Наименование")
+    street = models.ForeignKey(Streets, on_delete=models.CASCADE, null=False, verbose_name="Улица")
+    home = models.CharField(max_length=5, verbose_name="Номер дома")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Ящик для приема показаний"
+        verbose_name_plural = "Ящики для приема показаний"
+        
+class Contacts(models.Model):
+    name = models.CharField(max_length=300, null=False, verbose_name="Наименование",unique=True)
+    phone = models.TextField(max_length=100, null=True, blank=True, verbose_name="Телефоны")
+    eMail = models.CharField(max_length=100, null=True, blank=True, verbose_name="eMail")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Контакт"
+        verbose_name_plural = "Контакты"
+        
+class OurProfessionals(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False, verbose_name="ФИО")
+    description = models.TextField(max_length=2000, null=False, blank=False, verbose_name="Описание")
+    photo = models.FileField(upload_to='profs/', verbose_name="Фото", blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Профессионал"
+        verbose_name_plural = "Наши профеcсионалы"
+        
+class PublicServicePoint(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False,verbose_name="Пункт обслуживания населения")
+    location = models.CharField(max_length=200, null=False, blank=False,verbose_name="Место расположения")
+    workSchedule = models.TextField(max_length=1000, null=False, blank=False, verbose_name="Режим работы")
+    services = models.TextField(max_length=1000, null=False, blank=False, verbose_name="Комплекс услуг")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Пункт обслуживания населения"
+        verbose_name_plural = "Пункты обслуживания населения"
+        
+class Rates(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False,verbose_name="Наименование")
+    withTax = models.DecimalField(max_length=10, max_digits=10, decimal_places=2, null=False,blank=False,verbose_name="С НДС")
+    noTax = models.DecimalField(max_length=10, max_digits=10, decimal_places=2, null=False,blank=False,verbose_name="Без НДС")
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Тариф"
+        verbose_name_plural = "Тарифы"
+    

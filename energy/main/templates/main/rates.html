@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+{% block content %}
+<title>{% block title %}Экибастузские Тепловые Сети - Тарифы{% endblock %}</title>
+<div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
+    <h3>Тарифы</h3>
+    <div class="col px-4 py-3" style="overflow-y: auto;">
+        <br>
+        <h5><b>Тарифы ТОО «Экибастузские тепловые сети» на тепловую энергию с 1 апреля {{ year }} года в г. Экибастуз:</b></h5>
+        <br>
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr align="center">
+                    <th style="border: 1px solid #000; padding: 8px;">Наименование</th>
+                    <th style="border: 1px solid #000; padding: 8px;">Без учета НДС тенге/Гкал</th>
+                    <th style="border: 1px solid #000; padding: 8px;">С учетом НДС тенге/Гкал</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in info %}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ item.name|default:"" }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;" align=center>{{ item.noTax|default:"" }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;" align=center>{{ item.withTax|default:"" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <div style="text-align: center">
+            ТОО «Экибастузские тепловые сети» как организация по услуге по передаче, распределению и снабжению тепловой энергией включена в местный раздел Государственного регистра субъекта естественных монополии по виду регулируемых услуг — передача, распределение и снабжение тепловой энергией.
+        </div>
+        <br>
+        <div style="text-align: center">
+            Тарифы на услуги по передаче, распределению и снабжению тепловой энергии, регулируются и устанавливаются государством. Изменение тарифа осуществляется по инициативе ведомства уполномоченного органа не более двух раз в год, и по инициативе субъекта не более одного раза в год.
+        </div>
+        <br>
+        <div style="text-align: center">
+            Тарифы по монопольно регулируемым видам услуг, оказываемых Компанией, утверждаются Департаментом Комитета по регулированию естественных монополий, защите конкуренции и прав потребителей Министерства Национальной экономики Республики Казахстан по Павлодарской области. 
+        </div>
+</div>
+</div>
+{% endblock %}

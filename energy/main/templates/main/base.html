@@ -80,7 +80,6 @@
               <li><a class="dropdown-item" href={% url 'entities' %}>Небытовым потребителям (юридические лица)</a></li>
               <li><a class="dropdown-item" href={% url 'techspec' %}>Технические условия подключения</a></li>
               <li><a class="dropdown-item" href="{% url 'plunder' %}">Сообщить о хищение энергии</a></li>
-              <li><a class="dropdown-item" href="{% url 'esaving' %}">Энергосбережение</a></li>
               <li><a class="dropdown-item" href="{% url 'stap' %}">Акция "Шаг на встречу"</a></li>
             </ul>
           </li>
@@ -202,7 +201,7 @@
           </a>
         </div>
         <div class="info-card">
-          <a href="{% url 'tariffs' %}" style="text-decoration: none;">
+          <a href="{% url 'rates' %}" style="text-decoration: none;">
             <p class="contact-name">Тарифы на услуги</p>
             <div style="text-align: center;">
               <img src="{% static 'costs.png' %}" alt="Тарифы на услуги" class="img-fluid" style="width: 120px;">
