@@ -128,7 +128,7 @@ def ourprofs(request):
 
 def vacancy(request):
     context = get_default_context()
-    context['info'] = Vacancy.objects.all()
+    context['info'] = Vacancy.objects.filter(isActive=True)
     return render(request, 'main/vacancy.html', context)
 
 def test(request):
