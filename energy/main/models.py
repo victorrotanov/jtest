@@ -192,7 +192,7 @@ class MeterReadingBoxes(models.Model):
         
 class Contacts(models.Model):
     name = models.CharField(max_length=300, null=False, verbose_name="Наименование",unique=True)
-    phone = models.TextField(max_length=100, null=True, blank=True, verbose_name="Телефоны")
+    phone = models.TextField(max_length=500, null=True, blank=True, verbose_name="Телефоны")
     eMail = models.CharField(max_length=100, null=True, blank=True, verbose_name="eMail")
     
     def __str__(self):
