@@ -6,5 +6,27 @@
     <br>
     <h4>Условия подключения / поставки тепловой энергии в городе Экибастуз</h4>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;Для получения технических условий на теплоснабжение физические и юридические лица могут обратиться в канцелярию энергопередающей организации ТОО «Экибастузские тепловые сети» по адресу: г. Экибастуз, пр. имени Кунаева, строение 105, (режим работы  – понедельник - пятница с 09.00 до 16.00 часов), где можно получать перечень документов, необходимый для рассмотрения заявки на выдачу технических условий.</p>
+    <br>
+    <div class="col-12" style="height: 70%; overflow-y: auto;">
+        {% for item in info %}
+            <div class="container">
+                <a class="btn btn-link faq-link" data-bs-toggle="collapse" 
+                href="#faq-hiddenText{{ item.id }}" role="button" 
+                aria-expanded="false" aria-controls="faq-hiddenText{{ item.id }}">
+                    {{ item.name }}
+                </a>
+                <div class="collapse mt-0" id="faq-hiddenText{{ item.id }}">
+                    <div class="card card-body">
+                        <div class="d-flex w-100">
+                            <span class="me-2">{{ item.description }}</span>
+                            {% if item.file %}
+                                <a href="{{ item.file.url }}" download="{{ item.file.name }}">Скачать</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

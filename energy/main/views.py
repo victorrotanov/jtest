@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates, AdditionalInformation, Outages
+from .models import *
 from .forms import QuestionMessageForm
 import certifi
 import os
@@ -66,6 +66,7 @@ def entities(request):
 
 def techspec(request):
     context = get_default_context()
+    context['info'] = Techspec.objects.all()
     return render(request, 'main/techspec.html', context)
 
 def plunder(request):
