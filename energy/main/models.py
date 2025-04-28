@@ -46,7 +46,7 @@ class Managment(models.Model):
     organization = models.ForeignKey(
         OrganizationContact, on_delete=models.CASCADE, verbose_name="Организация", related_name="managment"
     )
-    photo = models.FileField(upload_to='managment/', verbose_name="Фото", blank=True, null=True)
+    photo = models.FileField(upload_to='managment/', verbose_name="Фото", blank=True, null=True,max_length=500)
     biography = models.TextField(verbose_name="Биография", blank=True, null=True)
     education = models.TextField(verbose_name="Образование", blank=True, null=True)
     recommendations = models.TextField(verbose_name="Рекомендация", blank=True, null=True)
@@ -128,7 +128,7 @@ class IndividualAttachment(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True)
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True, max_length=500)
     
     def __str__(self):
         return self.name
@@ -142,7 +142,7 @@ class EntityAttachment(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    file = models.FileField(upload_to='attachments/', verbose_name="Файл")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", max_length=500)
     
     def __str__(self):
         return self.name
@@ -205,7 +205,7 @@ class Contacts(models.Model):
 class OurProfessionals(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, verbose_name="ФИО")
     description = models.TextField(max_length=2000, null=False, blank=False, verbose_name="Описание")
-    photo = models.FileField(upload_to='profs/', verbose_name="Фото", blank=True, null=True)
+    photo = models.FileField(upload_to='profs/', verbose_name="Фото", blank=True, null=True, max_length=500)
     
     def __str__(self):
         return self.name
@@ -238,4 +238,29 @@ class Rates(models.Model):
     class Meta:
         verbose_name = "Тариф"
         verbose_name_plural = "Тарифы"
+
+class AdditionalInformation(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True, max_length=500)
     
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Дополнительная информация"
+        verbose_name_plural = "Дополнительная информация"
+
+class Outages(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание", null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True, max_length=500)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Плановое отключение"
+        verbose_name_plural = "Плановые отключения"

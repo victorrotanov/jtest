@@ -35,4 +35,5 @@ urlpatterns = [
     path('labor_union/', labor_union, name='labor_union'),
     path('integrated_system/', integrated_system, name='integrated_system'),
     path('meter_readings/', meter_readings, name='meter_readings'),
+    path('additional_information/', additional_information, name='additional_information'),
 ]

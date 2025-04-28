@@ -1,7 +1,28 @@
 {% extends "main/base.html" %}
-<title>{% block title %}Экибастузские Тепловые Сети - Плановые отключения{% endblock %}</title>
 {% block content %}
+<title>{% block title %}Экибастузские Тепловые Сети - Плановые отключения{% endblock %}</title>
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
     <h3>Плановые отключения</h3>
+    <div class="col-12" style="height: 70%; overflow-y: auto;">
+        {% for item in info %}
+            <div class="container">
+                <a class="btn btn-link faq-link" data-bs-toggle="collapse" 
+                href="#faq-hiddenText{{ item.id }}" role="button" 
+                aria-expanded="false" aria-controls="faq-hiddenText{{ item.id }}">
+                    {{ item.name }}
+                </a>
+                <div class="collapse mt-0" id="faq-hiddenText{{ item.id }}">
+                    <div class="card card-body">
+                        <div class="d-flex w-100">
+                            <span class="me-2">{{ item.description }}</span>
+                            {% if item.file %}
+                                <a href="{{ item.file.url }}" download="{{ item.file.name }}">Скачать</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

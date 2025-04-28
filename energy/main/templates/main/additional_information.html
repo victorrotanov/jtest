@@ -1,10 +1,10 @@
 {% extends "main/base.html" %}
+<title>{% block title %}Экибастузские Тепловые Сети - Дополнительная информация{% endblock %}</title>
 {% block content %}
-<title>{% block title %}Экибастузские Тепловые Сети - Бытовым потребителям (физические лица){% endblock %}</title>
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
-    <h3>Бытовым потребителям (физические лица)</h3>
+    <h3>Дополнительная информация</h3>
     <div class="col-12" style="height: 70%; overflow-y: auto;">
-        {% for item in attachments %}
+        {% for item in info %}
             <div class="container">
                 <a class="btn btn-link faq-link" data-bs-toggle="collapse" 
                 href="#faq-hiddenText{{ item.id }}" role="button" 

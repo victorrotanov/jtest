@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates
+from .models import News, OrganizationContact,Managment, FAQ, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates, AdditionalInformation, Outages
 from .forms import QuestionMessageForm
 import certifi
 import os
@@ -43,6 +43,7 @@ def strategy(request):
 
 def outages(request):
     context = get_default_context()
+    context['info'] = Outages.objects.all()
     return render(request, 'main/outages.html', context)
 
 def investments(request):
@@ -157,3 +158,8 @@ def meter_readings(request):
     context['meters_contacts'] = MeterReadingBaseContacts.objects.first()
     context['meters_boxes'] = MeterReadingBoxes.objects.all()
     return render(request, 'main/meter_readings.html', context)
+
+def additional_information(request):
+    context = get_default_context()
+    context['info'] = AdditionalInformation.objects.all()
+    return render(request, 'main/additional_information.html', context)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.shortcuts import redirect
-from .models import News, OrganizationContact, Managment, FAQ, QuestionThemes, QuestionMessage, PersonalReception, EmergencyService, IndividualAttachment, EntityAttachment, MeterReadingBaseContacts, Streets, MeterReadingBoxes, Contacts, OurProfessionals, PublicServicePoint, Rates
+from .models import *
 
 
 admin.site.site_header = "Панель управления сайтом"
@@ -104,3 +104,5 @@ admin.site.register(Contacts)
 admin.site.register(OurProfessionals)
 admin.site.register(PublicServicePoint)
 admin.site.register(Rates)
+admin.site.register(AdditionalInformation)
+admin.site.register(Outages)
