@@ -17,7 +17,7 @@ def get_default_context():
 
 def home(request):
     context = get_default_context()
-    context['news'] = News.objects.all()
+    context['news'] = News.objects.all().order_by('-created_at')
     return render(request, 'main/main.html', context)
 
 def contacts(request):
