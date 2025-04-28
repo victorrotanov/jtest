@@ -264,3 +264,16 @@ class Outages(models.Model):
     class Meta:
         verbose_name = "Плановое отключение"
         verbose_name_plural = "Плановые отключения"
+
+class Techspec(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание", null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='attachments/', verbose_name="Файл", blank=True, null=True, max_length=500)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Техническое условие"
+        verbose_name_plural = "Технические условия"

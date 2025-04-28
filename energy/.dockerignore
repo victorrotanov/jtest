@@ -1,8 +1,9 @@
-venv/
-__pycache__/
-*.pyc
-*.pyo
-*.log
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.log
+**/*.sqlite3
 db.sqlite3
 staticfiles/
 media/
+venv/

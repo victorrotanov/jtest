@@ -1,1 +1,26 @@
-__pycache__
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# SQLite database
+*.sqlite3
+db.sqlite3
+
+# Static and media files
+staticfiles/
+media/
+
+# VSCode settings
+.vscode/
+
+# Docker
+*.pid
+*.tar
+
+# System
+.DS_Store
+Thumbs.db
