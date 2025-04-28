@@ -1,6 +1,6 @@
 {% extends "main/base.html" %}
-<title>{% block title %}Экибастузские Тепловые Сети - Вакансии{% endblock %}</title>
 {% block content %}
+<title>{% block title %}Экибастузские Тепловые Сети - Вакансии{% endblock %}</title>
 <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
     <h3>ТОО «Экибастузские тепловые сети»</h3>
 
@@ -18,5 +18,10 @@
         <p>Заинтересованные кандидаты могут отправить своё резюме на электронную почту с указанием желаемой должности:</p>
         <p><a href="mailto:hr_ets@mail.ru">hr_ets@mail.ru</a></p>
     </div>
+    <ul>
+        {% for item in info %}
+        <li>{{item.name}}</li>
+        {% endfor%}
+    </ul>
 </div>
 {% endblock %}

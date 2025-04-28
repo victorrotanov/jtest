@@ -277,3 +277,13 @@ class Techspec(models.Model):
     class Meta:
         verbose_name = "Техническое условие"
         verbose_name_plural = "Технические условия"
+
+class Vacancy(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Название")
+    isActive = models.BooleanField(default=False, verbose_name="Активна")
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = "Вакансия"
+        verbose_name_plural = "Вакансии"
