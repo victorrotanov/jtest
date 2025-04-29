@@ -10,10 +10,6 @@ __pycache__/
 *.sqlite3
 db.sqlite3
 
-# Static and media files
-staticfiles/
-media/
-
 # VSCode settings
 .vscode/
 
