@@ -7,7 +7,7 @@
             <div class="news-header h5">{{ item.title }}</div>
             <div class="news-content mt-2">
                 <br>
-                <p>{{ item.content }}</p>
+                <p>{{ item.content|safe }}</p>
                 <small class="text-muted">{{ item.created_at }}</small>
             </div>
         </div>

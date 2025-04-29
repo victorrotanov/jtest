@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'tinymce',
     'main',
     'django_recaptcha',
+    'django_summernote',
 ]
 
 RECAPTCHA_PUBLIC_KEY = "6LcajQUrAAAAADkWWUA_DYY6wRzM1PLb0k92xqv8"

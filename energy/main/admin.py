@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import reverse
 from django.shortcuts import redirect
 from .models import *
+from django_summernote.admin import SummernoteModelAdmin
+
 
 
 admin.site.site_header = "Панель управления сайтом"
@@ -13,7 +15,8 @@ admin.site.register(IndividualAttachment)
 admin.site.register(EntityAttachment)
 
 @admin.register(News)
-class NewsAdmin(admin.ModelAdmin):
+class NewsAdmin(SummernoteModelAdmin):
+    summernote_fields = ('content',)
     list_display = ("created_at", "title")
     search_fields = ("title",)
     ordering = ("-created_at",)
