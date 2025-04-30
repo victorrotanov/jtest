@@ -57,21 +57,6 @@ class OrganizationContactAdmin(admin.ModelAdmin):
 
 admin.site.register(OrganizationContact, OrganizationContactAdmin)
 
-class PersonalReceptionAdmin(admin.ModelAdmin):
-    def has_add_permission(self, request):
-        return not PersonalReception.objects.exists()
-
-    def has_delete_permission(self, request, obj=None):
-        return False
-
-    def changelist_view(self, request, extra_context=None):
-        obj = PersonalReception.objects.first()
-        if obj:
-            return self.change_view(request, object_id=str(obj.pk))
-        return super().changelist_view(request, extra_context)
-
-admin.site.register(PersonalReception, PersonalReceptionAdmin)
-
 class EmergencyServiceAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return EmergencyService.objects.count() == 0
@@ -111,3 +96,4 @@ admin.site.register(AdditionalInformation)
 admin.site.register(Outages)
 admin.site.register(Techspec)
 admin.site.register(Vacancy)
+admin.site.register(PersonalReception)

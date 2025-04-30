@@ -11,7 +11,7 @@ def get_default_context():
     return {
         'organization': OrganizationContact.objects.first(),
         'management': Managment.objects.all(),
-        'personal_reception': PersonalReception.objects.first(),
+        'personal_reception': PersonalReception.objects.all().order_by('hierarchy'),
         'emergency_service': EmergencyService.objects.first(),
     }
 

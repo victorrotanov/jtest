@@ -101,6 +101,7 @@ class QuestionMessage(models.Model):
     
 class PersonalReception(models.Model):
     
+    hierarchy = models.IntegerField(verbose_name="Иерархия", unique=True)
     person = models.ForeignKey(Managment, on_delete=models.CASCADE, null=True, verbose_name="Личный прием ведет")
     description = models.TextField(verbose_name="Описание")
     
