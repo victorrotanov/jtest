@@ -7,6 +7,7 @@ class News(models.Model):
     content = models.TextField(verbose_name="Содержание")
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания")
+    file = models.FileField(upload_to='news/', verbose_name="Файл для скачивания", blank=True, null=True, max_length=500)
 
     class Meta:
         verbose_name = "Новость"

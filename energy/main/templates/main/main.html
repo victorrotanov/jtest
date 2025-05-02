@@ -1,16 +1,61 @@
 {% extends "main/base.html" %}
 {% block content %}
-    <div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
-        <h3>Новости</h3>
-        {% for item in news %}
-        <div class="news-block mb-4 p-3 border rounded">
-            <div class="news-header h5">{{ item.title }}</div>
-            <div class="news-content mt-2">
-                <br>
-                <p>{{ item.content|safe }}</p>
-                <small class="text-muted">{{ item.created_at }}</small>
+<div class="col px-4 py-3" style="background-color: rgba(240, 240, 240, 0.6); overflow-y: auto;">
+    <h3>Новости</h3>
+
+    {% for item in news %}
+    <div class="news-block mb-4 p-3 border rounded">
+        <br>
+        <div class="news-header h5">{{ item.title }}</div>
+        <div class="news-content mt-2" style="margin-top: 0 !important;">
+            <i style="margin-left: 1rem; margin-bottom: 0rem; display: inline-block;">{{ item.anonce }}</i>
+        
+            <div class="full-content collapse" id="news-{{ forloop.counter }}" style="margin-top: 0.1rem;">
+                <style>
+                    #news-{{ forloop.counter }} p {
+                        margin-top: 0.2rem;
+                        margin-bottom: 0.2rem;
+                    }
+                </style>
+                {{ item.content|safe }}
+                {% if item.file %}
+                    <p><a href="{{ item.file.url }}" download>Скачать файл новости</a></p>
+                {% endif %}
             </div>
+            <br>
+            
+            <a href="#" class="toggle-link" data-target="news-{{ forloop.counter }}">Показать полностью</a>
+         
+            <small class="text-muted">{{ item.created_at }}</small>
         </div>
-        {% endfor %}
+        
     </div>
-  {% endblock %}
+    {% endfor %}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('.toggle-link');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.dataset.target;
+                const target = document.getElementById(targetId);
+                if (target.classList.contains('collapse')) {
+                    target.classList.remove('collapse');
+                    this.textContent = 'Скрыть';
+                } else {
+                    target.classList.add('collapse');
+                    this.textContent = 'Показать полностью';
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .collapse {
+        display: none;
+    }
+</style>
+{% endblock %}
