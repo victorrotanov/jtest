@@ -4,7 +4,7 @@ class News(models.Model):
 
     title = models.CharField(max_length=200, verbose_name="Заголовок")
     anonce = models.TextField(verbose_name="Анонс")
-    content = models.TextField(verbose_name="Содержание")
+    content = models.TextField(verbose_name="Содержание", blank=True, null=True)
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания")
     file = models.FileField(upload_to='news/', verbose_name="Файл для скачивания", blank=True, null=True, max_length=500)

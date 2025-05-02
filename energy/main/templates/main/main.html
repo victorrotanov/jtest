@@ -24,8 +24,10 @@
             </div>
             <br>
             
+            {% if item.content %}
             <a href="#" class="toggle-link" data-target="news-{{ forloop.counter }}">Показать полностью</a>
-         
+            {% endif %}
+
             <small class="text-muted">{{ item.created_at }}</small>
         </div>
         
